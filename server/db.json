@@ -1,0 +1,69 @@
+{
+  "shoes": [
+    {
+      "id": "5884",
+      "name": "Puma Sneakers",
+      "price": "149",
+      "quantity": "22",
+      "image": "PumaSneakers"
+    },
+    {
+      "id": "44d6",
+      "name": "Nike Sneakers",
+      "price": "199",
+      "quantity": "15",
+      "image": "NikeSneakers"
+    },
+    {
+      "id": "68f0",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "PumaFlat"
+    },
+    {
+      "id": "b047",
+      "name": "MagMax",
+      "price": "179",
+      "quantity": "20",
+      "image": "PumaSport"
+    }
+  ],
+  "products": [
+    {
+      "id": "68f0",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "JPL"
+    },
+    {
+      "id": "68f1",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "JPL"
+    },
+    {
+      "id": "68f2",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "JPL"
+    },
+    {
+      "id": "68f3",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "JPL"
+    },
+    {
+      "id": "68f4",
+      "name": "Puma White Flat",
+      "price": "49",
+      "quantity": "40",
+      "image": "JPL"
+    }
+  ]
+}

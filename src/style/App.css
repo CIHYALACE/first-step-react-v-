@@ -1,0 +1,87 @@
+.logo{
+    width: 3%;
+    height: 3%;
+}
+
+body{
+    background: #E4EBF1;
+  
+  }
+  
+  .card-img-top {
+      object-fit: cover; /* Ensures the image fills the container while cropping the overflow */
+      height: 50%; 
+      width: 100%; /* Ensures it spans the full width of the card */
+      overflow: hidden; /* Hides any overflow */
+    }
+  
+    .navbar-toggler-icon{
+      color: white;
+    }
+  
+    .details {
+      font-size: 13px; /* Adjust as needed */
+    }
+  
+    .card{
+      background: #E4EBF1;
+      box-shadow: -10px -10px 10px #FAFBFF , 5px 5px 10px #161B1D;
+    }
+  
+    .btn-custom{
+      /* border:none; */
+      background: #E4EBF1;
+      box-shadow: -5px -5px 10px #FAFBFF , 5px 5px 10px #161B1D;
+      transition: 0.1s ease-in-out;
+    }
+
+    .btn-custom:hover{
+      transform: scale(1.1)
+    }
+  
+    .fw-bold{
+      color: #E4EBF1;
+      text-shadow: 5px 5px 8px #161B1D , -5px -5px 7px #FFFFFF;
+    }
+  
+  .aside{
+    background: #E4EBF1;
+    box-shadow: -10px -10px 10px #FAFBFF , 5px 5px 10px #161B1D;
+  }
+  
+  .btn-dark{
+    background-color: #222;
+  }
+
+  .btn-danger{
+    background-color: #dc3545;
+  }
+  
+  .loader {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #333; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .custom-height{
+    height: 88.8vh;
+  }
+
+  .bg-image{
+    background-image: url(../../public/accountBG.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .link , .fs-8{
+    font-size: 14px;
+  }
