@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export function Aside() {
   return (
     <>
-      <div className="aside  w-25 rounded px-2">
+      <div className="custom2-bg w-25 rounded px-2">
         <Link to="0/edit" className="btn btn-custom w-75 m-3">Add New Product</Link>
         <div className="input-group m-3 w-75">
           <button

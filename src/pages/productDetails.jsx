@@ -10,7 +10,7 @@ export function ProductDetails() {
   useEffect(() => {
     GetProductById(id).then((response) => setProduct(response.data));
   }, []);
-  let num = 1;
+  let role = "customer"
 
   return (
     <>
@@ -44,7 +44,7 @@ export function ProductDetails() {
               <p className="form-label">{`Quantity: ${product?.quantity} Peaces.`}</p>
             </div>
 
-            <Link to="/products" className="btn btn-custom text-secondary">
+            <Link to={role == "admin"?"/products":"/"} className="btn btn-custom text-secondary">
               Back To Products List
             </Link>
           </div>

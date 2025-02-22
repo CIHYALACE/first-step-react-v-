@@ -65,5 +65,31 @@
       "quantity": "40",
       "image": "JPL"
     }
+  ],
+  "users": [
+    {
+      "id": "afcc",
+      "userName": "AbdelRahman",
+      "email": "abodyoussef2015@gmail.com",
+      "password": "Abdo@2000"
+    },
+    {
+      "id": "c73e",
+      "userName": "Omar",
+      "email": "omar@gmail.com",
+      "password": "omar@2000"
+    },
+    {
+      "id": "1877",
+      "userName": "Sara",
+      "email": "sara@gmail.com",
+      "password": "sara@2000"
+    },
+    {
+      "id": "6c93",
+      "userName": "Ahmed",
+      "email": "Ahmed@gmail.com",
+      "password": "Ahmed@2000"
+    }
   ]
 }

@@ -25,7 +25,7 @@ body{
   
     .card{
       background: #E4EBF1;
-      box-shadow: -10px -10px 10px #FAFBFF , 5px 5px 10px #161B1D;
+      /* box-shadow: -10px -10px 10px #FAFBFF , 5px 5px 10px #161B1D; */
     }
   
     .btn-custom{
@@ -39,14 +39,8 @@ body{
       transform: scale(1.1)
     }
   
-    .fw-bold{
-      color: #E4EBF1;
-      text-shadow: 5px 5px 8px #161B1D , -5px -5px 7px #FFFFFF;
-    }
-  
-  .aside{
-    background: #E4EBF1;
-    box-shadow: -10px -10px 10px #FAFBFF , 5px 5px 10px #161B1D;
+  .custom2-bg{
+    background-color: rgb( 255, 255, 255 , 0.6);
   }
   
   .btn-dark{
@@ -75,7 +69,7 @@ body{
   .custom-height{
     height: 88.8vh;
   }
-
+ 
   .bg-image{
     background-image: url(../../public/accountBG.jpg);
     background-size: cover;
@@ -85,3 +79,27 @@ body{
   .link , .fs-8{
     font-size: 14px;
   }
+
+  .slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Adjust height as needed */
+    border-radius: 10px; /* Optional */
+}
+
+.slide-1{
+  background-image: url('../../public/blackNike.jpg'); /* Replace with your image URL */
+}
+
+.slide-2{
+  background-image: url('../../public/redNike.jpg'); /* Replace with your image URL */
+}
+
+.slide-3{
+  background-image: url('../../public/whiteNike.jpg'); /* Replace with your image URL */
+}
+
+.custom-bg{
+  background-color: rgb( 1, 1, 1 , 0.6);
+}

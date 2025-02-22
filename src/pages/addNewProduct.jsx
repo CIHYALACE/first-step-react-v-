@@ -44,7 +44,7 @@ export function AddNewProduct() {
       await addNewProduct(formData);
       navigate("/products");
     } else {
-      await editProduct( id , formData);
+      await editProduct(id, formData);
       navigate("/products");
     }
   };
@@ -56,15 +56,19 @@ export function AddNewProduct() {
           {" "}
           {id == 0 ? "Add New Product" : "Edit Product Data"}{" "}
         </h1>
-        <form className="aside rounded py-5" onSubmit={productHandler}>
+        <form
+          className="aside rounded py-5 was-validated"
+          onSubmit={productHandler}
+        >
           <div className="mb-3 w-75 mx-auto">
-            <label className="form-label">Product Name:</label>
+            <label  className="form-label">Product Name:</label>
             <input
               type="text"
               className="form-control"
               name="name"
               value={formData.name}
               onChange={inputHandler}
+              required
             />
           </div>
 
@@ -76,7 +80,9 @@ export function AddNewProduct() {
               name="price"
               value={formData.price}
               onChange={inputHandler}
+              required
             />
+
           </div>
 
           <div className="mb-3 w-75 mx-auto">
@@ -87,17 +93,22 @@ export function AddNewProduct() {
               name="quantity"
               value={formData.quantity}
               onChange={inputHandler}
+              required
             />
+
           </div>
 
           <div className="mb-3 w-75 mx-auto">
             <label className="form-label">Product image: </label>
             <input
               type="file"
+              className="form-control"
               accept="image/*"
               name="image"
               onChange={inputHandler}
+              required
             />
+
           </div>
 
           <div className="w-75 mx-auto">

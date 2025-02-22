@@ -1,35 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { GetAllProducts } from '../api/productApi';
-import { deleteProduct } from '../api/productApi';
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProductAction, getAllProductsAction } from "../redux/productsSlice";
 
 export function AdminProductCard() {
 
-  let [products,setProducts] = useState( [] )
-  let [isLoading,setIsloading] = useState( true )
+  const {products , isLoading , errors} = useSelector( store => store.productsSlice)
+  const dispatch = useDispatch()
 
-  useEffect(()=>{
-    const fetchData = async () =>{
-      setIsloading ( true )
-      let response = await GetAllProducts()
-      setProducts ( response.data )
-      setIsloading ( false )
-    }
-    fetchData()
-  },[])
+  useEffect(() => {
+      dispatch(getAllProductsAction())
+  }, []);
 
-  const deleteHandeler = async ( productId ) => {
-    await deleteProduct( productId ).then( () => {
-      setProducts( products.filter( products => products.id != productId ) )
-    } )
-  }
-
-
+  const deleteHandeler = async (productId) => {
+    dispatch(deleteProductAction(productId))
+    console.log(productId)
+  };
 
   return (
     <>
-    <div className="w-75 vh-100">
-      <div className="row row-cols-0 row-cols-md-4 g-1 gx-2 border border-2 rounded">
+      <div className="w-75 vh-100">
+      <div className="row row-cols-0 row-cols-md-4 g-1 gx-2 rounded">
         {isLoading && <div className="loader"></div>}
         {products.map( (product) => (
                <div className="col" key={product.id}>

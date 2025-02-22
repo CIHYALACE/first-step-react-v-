@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GetProductById } from "../api/productApi";
+import { Slide } from "./slide";
+import { Slide3 } from "./slide3";
+import { Slide2 } from "./slide2";
 
 export function Slider() {
   const { id } = useParams();
@@ -20,25 +23,27 @@ export function Slider() {
       >
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="4000">
-            <img
+            {product.id != null?<img
               src={`../../public/products/${product?.image}.jpg`}
               className="d-block w-100"
               alt="..."
-            />
+            />: <Slide /> }
           </div>
+
           <div className="carousel-item" data-bs-interval="4000">
-            <img
+            {product.id != null?<img
               src={`../../public/products/${product.image}${num + 1}.jpg`}
               className="d-block w-100"
               alt="..."
-            />
+             />: <Slide2 /> }
+
           </div>
           <div className="carousel-item">
-            <img
+          {product.id != null?<img
               src={`../../public/products/${product.image}${num + 2}.jpg`}
               className="d-block w-100"
               alt="..."
-            />
+            />: <Slide3 /> }
           </div>
         </div>
         <button

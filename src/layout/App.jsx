@@ -13,19 +13,20 @@ import { UserProducts } from "../pages/shop";
 
 function App() {
   const [count, setCount] = useState(0);
+  let role = "customer"
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/products" element={<Products />} />
+          <Route path={role != "admin"? "/products" : undefined} index={role == "admin"} element={<HomePage />} />
+          <Route path={role == "admin"? "/products" : undefined} index={role != "admin"} element={<Products />} />
           <Route path="/account" element={<Account />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/products/:id/edit" element={<AddNewProduct />} />
           <Route path="/products/:id/view" element={<ProductDetails />} />
           <Route path="/shop" element={<UserProducts />} />
-          <Route path="/shop/:id/view" element={<ProductDetails />} />
+          <Route path="/:id/view" element={<ProductDetails />} />
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
