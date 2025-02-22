@@ -47,7 +47,7 @@ export function CustomerHeader() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto fs-5">
                 <li className="nav-item px-2">
-                  <NavLink className= { ( { isActive } ) => isActive ?  "nav-link text-danger mx-2":"nav-link text-light mx-2"} to="/account">
+                  <NavLink className= { ( { isActive } ) => isActive ?  "nav-link text-danger mx-2":"nav-link text-light mx-2"} to={sessionStorage.getItem("userName") == null? "/account":"/profile"}>
                     <i type="button" className="fa fa-user" aria-hidden="true"></i>
                   </NavLink>
                 </li>

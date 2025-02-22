@@ -7,8 +7,8 @@ import { ProductDetails } from "../pages/productDetails";
 import { AddNewProduct } from "../pages/addNewProduct";
 import { Page404 } from "../pages/page404"
 import { Account } from "../pages/account";
-import { CustomerProductCard } from "../component/customerProductCard";
 import { UserProducts } from "../pages/shop";
+import { Profile } from "../pages/profile";
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <Route path={role != "admin"? "/products" : undefined} index={role == "admin"} element={<HomePage />} />
           <Route path={role == "admin"? "/products" : undefined} index={role != "admin"} element={<Products />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/products/:id/edit" element={<AddNewProduct />} />
           <Route path="/products/:id/view" element={<ProductDetails />} />

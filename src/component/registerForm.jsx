@@ -8,6 +8,7 @@ export function RegisterForm({ shiftImage }) {
     userName: "",
     email: "",
     password: "",
+    role:"customer"
   });
 
   const inputHandler = (e) => {
@@ -37,6 +38,12 @@ export function RegisterForm({ shiftImage }) {
               onChange={inputHandler}
             />
           </div>
+
+          <input
+              type="text"
+              name="role"
+              className="form-control d-none"
+            />
 
           <div className="mb-2 w-75 mx-auto fs-8">
             <label className="form-label text-light">Email address: </label>

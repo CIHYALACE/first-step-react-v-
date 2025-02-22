@@ -28,9 +28,11 @@ export function LoginForm({ shiftImage }) {
     e.preventDefault();
     for (let i = 0; i < users.length; i++) {
       if (formData.password === users[i].password && formData.email === users[i].email) {
+        sessionStorage.setItem("userName",users[i].userName)
+        sessionStorage.setItem("role",users[i].role)
         setIsValid(true);
         navigate("/")
-        return; // Exit the function immediately when a match is found
+        return; 
       }
     }
     setIsValid(false);
