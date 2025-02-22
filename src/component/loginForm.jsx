@@ -30,8 +30,10 @@ export function LoginForm({ shiftImage }) {
       if (formData.password === users[i].password && formData.email === users[i].email) {
         sessionStorage.setItem("userName",users[i].userName)
         sessionStorage.setItem("role",users[i].role)
+        sessionStorage.setItem("id" ,users[i].id)
         setIsValid(true);
         navigate("/")
+        window.location.reload();
         return; 
       }
     }

@@ -29,7 +29,6 @@ export const deleteProductAction = createAsyncThunk(
     }catch (error){
     return rejectWithValue(error)
     }
-
   }
 )
 

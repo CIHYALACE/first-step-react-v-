@@ -9,11 +9,12 @@ import { Page404 } from "../pages/page404"
 import { Account } from "../pages/account";
 import { UserProducts } from "../pages/shop";
 import { Profile } from "../pages/profile";
+import { Cart } from "../pages/cartPage";
 
 
 function App() {
   const [count, setCount] = useState(0);
-  let role = "customer"
+  let role = sessionStorage.getItem("role")
 
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/:id/edit" element={<AddNewProduct />} />
           <Route path="/products/:id/view" element={<ProductDetails />} />
           <Route path="/shop" element={<UserProducts />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/:id/view" element={<ProductDetails />} />
           <Route path="*" element={<Page404 />} />
         </Route>

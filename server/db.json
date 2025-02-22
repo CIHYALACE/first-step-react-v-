@@ -20,50 +20,6 @@
       "price": "49",
       "quantity": "40",
       "image": "PumaFlat"
-    },
-    {
-      "id": "b047",
-      "name": "MagMax",
-      "price": "179",
-      "quantity": "20",
-      "image": "PumaSport"
-    }
-  ],
-  "products": [
-    {
-      "id": "68f0",
-      "name": "Puma White Flat",
-      "price": "49",
-      "quantity": "40",
-      "image": "JPL"
-    },
-    {
-      "id": "68f1",
-      "name": "Puma White Flat",
-      "price": "49",
-      "quantity": "40",
-      "image": "JPL"
-    },
-    {
-      "id": "68f2",
-      "name": "Puma White Flat",
-      "price": "49",
-      "quantity": "40",
-      "image": "JPL"
-    },
-    {
-      "id": "68f3",
-      "name": "Puma White Flat",
-      "price": "49",
-      "quantity": "40",
-      "image": "JPL"
-    },
-    {
-      "id": "68f4",
-      "name": "Puma White Flat",
-      "price": "49",
-      "quantity": "40",
-      "image": "JPL"
     }
   ],
   "users": [
@@ -72,7 +28,16 @@
       "userName": "AbdelRahman",
       "email": "abdelrahman@gmail.com",
       "password": "abdo@2000",
-      "role": "customer"
+      "role": "customer",
+      "cart": []
+    },
+    {
+      "id": "44b8",
+      "userName": "Omar",
+      "email": "omar@gmail.com",
+      "password": "omar@2000",
+      "role": "customer",
+      "cart": []
     }
   ]
 }

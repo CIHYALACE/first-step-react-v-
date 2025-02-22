@@ -52,12 +52,12 @@ export function CustomerHeader() {
                   </NavLink>
                 </li>
                 <li className="nav-item px-2">
-                  <a className="nav-link text-light position-relative" href="#">
+                  <NavLink className="nav-link text-light position-relative" to={"/cart"}>
                   <i type="button" className="fa fa-shopping-cart" aria-hidden="true"></i>
                   <span className="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger px-1">
                   <span className="details"> 12 </span>
                   </span>
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>

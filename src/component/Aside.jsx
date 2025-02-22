@@ -1,10 +1,11 @@
 import { Link } from "react-router";
 
 export function Aside() {
+  let role = sessionStorage.getItem("role")
   return (
     <>
       <div className="custom2-bg w-25 rounded px-2">
-        <Link to="0/edit" className="btn btn-custom w-75 m-3">Add New Product</Link>
+        {role != "customer" && <Link to="0/edit" className="btn btn-custom w-75 m-3">Add New Product</Link>}
         <div className="input-group m-3 w-75">
           <button
             className="btn "

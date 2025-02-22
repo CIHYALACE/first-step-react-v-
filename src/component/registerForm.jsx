@@ -8,7 +8,8 @@ export function RegisterForm({ shiftImage }) {
     userName: "",
     email: "",
     password: "",
-    role:"customer"
+    role:"customer",
+    cart:[],
   });
 
   const inputHandler = (e) => {

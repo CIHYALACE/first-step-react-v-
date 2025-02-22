@@ -14,7 +14,6 @@ export function AdminProductCard() {
 
   const deleteHandeler = async (productId) => {
     dispatch(deleteProductAction(productId))
-    console.log(productId)
   };
 
   return (

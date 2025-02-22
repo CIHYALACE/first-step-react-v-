@@ -4,7 +4,7 @@ import { CustomerProductCard } from "../component/customerProductCard";
 import { Slider } from "../component/slider";
 
 export function Products() {
-  let role  = "customer"
+  let role  = sessionStorage.getItem("role")
   return (
     <>
     <div className="bg-image">
