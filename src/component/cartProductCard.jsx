@@ -11,7 +11,6 @@ export function CartProductCard() {
   useEffect( () =>{
       dispatch(getUserDataAction(userId))
   }, [dispatch, userId])
-  console.log(users)
 
  
 
