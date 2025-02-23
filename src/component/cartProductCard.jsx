@@ -11,7 +11,7 @@ export function CartProductCard() {
   useEffect( () =>{
       dispatch(getUserDataAction(userId))
   }, [dispatch, userId])
-
+// the "console.log will have no result tell the function get the id from session storage"
  console.log(users)
 
   return(

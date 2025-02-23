@@ -1,9 +1,10 @@
 import { configureStore, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { GetAllUsers, GetUserData } from "../api/userApi";
+import { addToCart, GetAllUsers, GetUserData } from "../api/userApi";
 
 const initialState = {
     users: [],
     errors: null,
+    cartData: []
   };
 
   export const getAllUsersAction = createAsyncThunk(
@@ -14,7 +15,7 @@ const initialState = {
       let response = await GetAllUsers();
       return response.data;
      }catch(error){
-      return rejectWithValue(error)
+      return rejectWithValue(error.message)
      }
     }
   )
@@ -29,8 +30,22 @@ const initialState = {
       return response.data
       
     }catch (error){
-      rejectWithValue(error)
+      return rejectWithValue(error.message)
     }
+    }
+  )
+
+  export const addToCartAction = createAsyncThunk(
+    "user/addToCartAction",
+      async  ({userId , cartData } , thunkAPI) =>{
+        const {rejectWithValue} = thunkAPI;
+        try {
+          let response = await addToCart(userId , cartData)
+          console.log(response.data)
+          return response.data
+        } catch (error) {
+          return rejectWithValue(error.message)
+        }
     }
   )
 
@@ -52,6 +67,13 @@ const initialState = {
           builder.addCase(getUserDataAction.rejected, (state, action) => {
             state.errors = action.payload;
           });
+          builder.addCase(addToCartAction.fulfilled, (state, action)=>{
+            let product = action.payload
+            state.cartData = [...state.cartData,product]
+          })
+          builder.addCase(addToCartAction.rejected, (state, action)=>{
+            state.errors = action.payload;
+          })
     }
   });
 
