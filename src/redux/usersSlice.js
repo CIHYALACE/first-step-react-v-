@@ -38,14 +38,28 @@ const initialState = {
   export const addToCartAction = createAsyncThunk(
     "user/addToCartAction",
       async  ({userId , productId , quantity = 1} , thunkAPI) =>{
-        const { rejectWithValue } = thunkAPI;
+        const { rejectWithValue , getState} = thunkAPI;
         try {
           // Fetch the current user data
           let userResponse = await GetUserData(userId);
           let user = userResponse.data;
+
+          // Fetch the product data from the state
+          const state = getState();
+          const product = state.productsSlice.products.find(p => p.id === productId);          
     
-          // Update the cart data
-          let updatedCart = [...user.cart, { productId, quantity }];
+      // Check if the product already exists in the cart
+        let updatedCart = user.cart.map(item => {
+          if (item.id === productId) {
+            return { ...item, quantity: item.quantity + quantity };
+          }
+          return item;
+        });
+
+        // If the product does not exist in the cart, add it
+        if (!updatedCart.some(item => item.id === productId)) {
+          updatedCart = [...updatedCart, { ...product, quantity }];
+        }
     
           // Send the updated cart data to the server
           let response = await addToCart(userId, updatedCart);

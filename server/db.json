@@ -39,8 +39,18 @@
       "role": "customer",
       "cart": [
         {
-          "productId": "68f0",
-          "quantity": 1
+          "id": "68f0",
+          "name": "Puma White Flat",
+          "price": "49",
+          "quantity": 2,
+          "image": "PumaFlat"
+        },
+        {
+          "id": "44d6",
+          "name": "Nike Sneakers",
+          "price": "199",
+          "quantity": 2,
+          "image": "NikeSneakers"
         }
       ]
     }
