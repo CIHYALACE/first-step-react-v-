@@ -37,14 +37,22 @@ const initialState = {
 
   export const addToCartAction = createAsyncThunk(
     "user/addToCartAction",
-      async  ({userId , cartData } , thunkAPI) =>{
-        const {rejectWithValue} = thunkAPI;
+      async  ({userId , productId , quantity = 1} , thunkAPI) =>{
+        const { rejectWithValue } = thunkAPI;
         try {
-          let response = await addToCart(userId , cartData)
-          console.log(response.data)
-          return response.data
+          // Fetch the current user data
+          let userResponse = await GetUserData(userId);
+          let user = userResponse.data;
+    
+          // Update the cart data
+          let updatedCart = [...user.cart, { productId, quantity }];
+    
+          // Send the updated cart data to the server
+          let response = await addToCart(userId, updatedCart);
+          console.log(response.data);
+          return response.data;
         } catch (error) {
-          return rejectWithValue(error.message)
+          return rejectWithValue(error.message);
         }
     }
   )

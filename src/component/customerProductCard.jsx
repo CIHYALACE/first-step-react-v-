@@ -19,7 +19,7 @@ export function CustomerProductCard() {
   
     const newcartData = {productId , quantity}
     const userId = sessionStorage.getItem("id")
-    dispatch(addToCartAction({userId , cartData}))
+    dispatch(addToCartAction({userId , productId , quantity}))
   }
 
   return (
@@ -36,7 +36,7 @@ export function CustomerProductCard() {
                  <p>Code: {product.id} </p>
                   <p>Quantity: {product.quantity} </p>
                  <Link to={`${product.id}/view`} className="btn btn-custom me-1 text-dark p-2">View</Link>
-                 <button className="btn btn-custom me-1 text-dark p-2" onClick={addToCartHandler}>Add To Cart</button>
+                 <button className="btn btn-custom me-1 text-dark p-2" onClick={() =>addToCartHandler(product.id)}>Add To Cart</button>
                </div>
              </div>
            </div>

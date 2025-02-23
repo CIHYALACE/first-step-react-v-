@@ -37,7 +37,12 @@
       "email": "omar@gmail.com",
       "password": "omar@2000",
       "role": "customer",
-      "cart": []
+      "cart": [
+        {
+          "productId": "68f0",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }
