@@ -1,13 +1,6 @@
 {
   "shoes": [
     {
-      "id": "5884",
-      "name": "Puma Sneakers",
-      "price": "149",
-      "quantity": "22",
-      "image": "PumaSneakers"
-    },
-    {
       "id": "44d6",
       "name": "Nike Sneakers",
       "price": "199",
@@ -27,6 +20,13 @@
       "price": "149",
       "quantity": "19",
       "image": "PumaSport"
+    },
+    {
+      "id": "a018",
+      "name": "product",
+      "price": "189",
+      "quantity": "12",
+      "image": "PumaSneakers"
     }
   ],
   "users": [
@@ -91,6 +91,66 @@
       "password": "Sara@2000",
       "role": "customer",
       "cart": []
+    },
+    {
+      "id": "f690",
+      "userName": "ali",
+      "email": "ali@gmail.com",
+      "password": "Ali@2000",
+      "role": "customer",
+      "cart": [
+        {
+          "id": "68f0",
+          "name": "Puma White Flat",
+          "price": "49",
+          "quantity": 4,
+          "image": "PumaFlat"
+        },
+        {
+          "id": "5884",
+          "name": "Puma Sneakers",
+          "price": "149",
+          "quantity": 2,
+          "image": "PumaSneakers"
+        },
+        {
+          "id": "0c85",
+          "name": "MegMax",
+          "price": "149",
+          "quantity": 1,
+          "image": "PumaSport"
+        }
+      ]
+    },
+    {
+      "id": "1603",
+      "userName": "mohammed",
+      "email": "mohammed@gmail.com",
+      "password": "Mohammed@2000",
+      "role": "customer",
+      "cart": [
+        {
+          "id": "44d6",
+          "name": "Nike Sneakers",
+          "price": "199",
+          "quantity": 2,
+          "image": "NikeSneakers"
+        },
+        {
+          "id": "5884",
+          "name": "Puma Sneakers",
+          "price": "149",
+          "quantity": 1,
+          "image": "PumaSneakers"
+        },
+        {
+          "id": "68f0",
+          "name": "Puma White Flat",
+          "price": "49",
+          "quantity": 1,
+          "image": "PumaFlat"
+        }
+      ]
     }
   ]
 }

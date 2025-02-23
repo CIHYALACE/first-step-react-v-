@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { removeFromCartAction } from "../redux/usersSlice"; // Import the removeFromCartAction
 
 
 export function CartProductCard({ product }) {
