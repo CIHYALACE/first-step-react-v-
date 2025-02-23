@@ -4,7 +4,7 @@ import { addToCart, GetAllUsers, GetUserData } from "../api/userApi";
 const initialState = {
     users: [],
     errors: null,
-    cartData: []
+    cartData: ["hello"],
   };
 
   export const getAllUsersAction = createAsyncThunk(
@@ -25,9 +25,9 @@ const initialState = {
     async (userId , thunkAPI) => {
       const {rejectWithValue} = thunkAPI;
     try{
-      let response = await GetUserData(userId)
+      const response = await GetUserData(userId)
       console.log(response.data)
-      return response.data
+      return response.data;
       
     }catch (error){
       return rejectWithValue(error.message)
@@ -40,28 +40,20 @@ const initialState = {
       async  ({userId , productId , quantity = 1} , thunkAPI) =>{
         const { rejectWithValue , getState} = thunkAPI;
         try {
-          // Fetch the current user data
           let userResponse = await GetUserData(userId);
           let user = userResponse.data;
-
-          // Fetch the product data from the state
           const state = getState();
           const product = state.productsSlice.products.find(p => p.id === productId);          
     
-      // Check if the product already exists in the cart
         let updatedCart = user.cart.map(item => {
           if (item.id === productId) {
             return { ...item, quantity: item.quantity + quantity };
           }
           return item;
         });
-
-        // If the product does not exist in the cart, add it
         if (!updatedCart.some(item => item.id === productId)) {
           updatedCart = [...updatedCart, { ...product, quantity }];
         }
-    
-          // Send the updated cart data to the server
           let response = await addToCart(userId, updatedCart);
           console.log(response.data);
           return response.data;
@@ -84,7 +76,9 @@ const initialState = {
             state.errors = action.payload;
           });
           builder.addCase(getUserDataAction.fulfilled, (state, action) => {
-            state.users = action.payload;
+            const user = action.payload;
+            state.users[user.id] = user;
+            state.cartData = user.cart;
           });
           builder.addCase(getUserDataAction.rejected, (state, action) => {
             state.errors = action.payload;

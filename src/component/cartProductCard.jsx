@@ -4,15 +4,10 @@ import { getUserDataAction } from "../redux/usersSlice"
 
 
 export function CartProductCard({ product }) {
-  const {users, errors} = useSelector( store => store.usersSlice )
   const dispatch = useDispatch()
-  const userId = sessionStorage.getItem("id");
 
-  useEffect( () =>{
-      dispatch(getUserDataAction(userId))
-  }, [dispatch, userId])
-// the "console.log will have no result tell the function get the id from session storage"
- console.log(users)
+
+
 
   return(
   <>

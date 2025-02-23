@@ -8,3 +8,5 @@ export const myStore = configureStore({
         usersSlice : usersReducer
     },
 });
+
+export default myStore;

@@ -3,17 +3,22 @@ import { Aside } from "../component/Aside";
 import { CartProductCard } from "../component/cartProductCard";
 import { useEffect } from "react";
 import { getUserDataAction } from "../redux/usersSlice";
-
 export function Cart() {
-  const { cartData } = useSelector((store) => store.usersSlice);
+
+  const { cartData , error } = useSelector((store) => store.usersSlice);
   const dispatch = useDispatch();
   let role  = sessionStorage.getItem("role")
   const userId = sessionStorage.getItem("id");
 
+  console.log(userId);
 
-  useEffect(() => {
-    dispatch(getUserDataAction(userId));
-  }, [dispatch , userId]);
+   // Fetch user data (including cart data) when the component mounts or userId changes
+   useEffect(() => {
+    if (userId) {
+      dispatch(getUserDataAction(userId));
+      console.log("User data fetched");
+    }
+  }, [dispatch, userId]);
   
   useEffect(() => {
     console.log("Cart data updated:", cartData);
