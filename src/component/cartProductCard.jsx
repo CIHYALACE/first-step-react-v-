@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getAllUsersAction, getUserDataAction } from "../redux/usersSlice"
+import { getUserDataAction } from "../redux/usersSlice"
 
 
-export function CartProductCard() {
+export function CartProductCard({ product }) {
   const {users, errors} = useSelector( store => store.usersSlice )
   const dispatch = useDispatch()
   const userId = sessionStorage.getItem("id");
@@ -15,12 +15,21 @@ export function CartProductCard() {
  console.log(users)
 
   return(
-    <>
-      <div className="w-75 vh-100">
-      <div className="row row-cols-0 row-cols-md-4 g-1 gx-2 rounded">
-        hello
+  <>
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={`../public/products/${product.image}.jpg`} className="img-fluid rounded-start" alt={product.name} />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">{product.name}</h5>
+            <p className="card-text">Price: ${product.price}</p>
+            <p className="card-text">Quantity: {product.quantity}</p>
+          </div>
+        </div>
       </div>
-      </div>
-    </>
+    </div>
+  </>
   )
 }

@@ -1,4 +1,4 @@
-import { configureStore, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { addToCart, GetAllUsers, GetUserData } from "../api/userApi";
 
 const initialState = {
