@@ -20,6 +20,13 @@
       "price": "49",
       "quantity": "40",
       "image": "PumaFlat"
+    },
+    {
+      "id": "0c85",
+      "name": "MegMax",
+      "price": "149",
+      "quantity": "19",
+      "image": "PumaSport"
     }
   ],
   "users": [
@@ -42,7 +49,7 @@
           "id": "68f0",
           "name": "Puma White Flat",
           "price": "49",
-          "quantity": 2,
+          "quantity": 5,
           "image": "PumaFlat"
         },
         {
@@ -51,8 +58,39 @@
           "price": "199",
           "quantity": 2,
           "image": "NikeSneakers"
+        },
+        {
+          "id": "5884",
+          "name": "Puma Sneakers",
+          "price": "149",
+          "quantity": 5,
+          "image": "PumaSneakers"
         }
       ]
+    },
+    {
+      "id": "608a",
+      "userName": "admin",
+      "email": "admin@gmail.com",
+      "password": "Admin@2000",
+      "role": "admin",
+      "cart": []
+    },
+    {
+      "id": "f7e1",
+      "userName": "eman",
+      "email": "eman@gmail.com",
+      "password": "Eman@2000",
+      "role": "customer",
+      "cart": []
+    },
+    {
+      "id": "ac18",
+      "userName": "sara",
+      "email": "sara@gmail.com",
+      "password": "Sara@2000",
+      "role": "customer",
+      "cart": []
     }
   ]
 }

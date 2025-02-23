@@ -1,26 +1,45 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsAction } from "../redux/productsSlice";
 import { addToCartAction } from "../redux/usersSlice";
+import Swal from "sweetalert2";
 
 export function CustomerProductCard() {
 
   const {products , isLoading , errors} = useSelector( store =>  store.productsSlice );
   const { cartData } = useSelector((store) => store.usersSlice);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userEmail = sessionStorage.getItem("email");
 
   useEffect(()=>{
     dispatch(getAllProductsAction())
   },[])
 
 
-  const addToCartHandler = (productId , quantity = 1)=>{
-  
-    const newcartData = {productId , quantity}
-    const userId = sessionStorage.getItem("id")
-    dispatch(addToCartAction({userId , productId , quantity}))
-  }
+  const addToCartHandler = (productId, quantity = 1) => {
+    const userId = sessionStorage.getItem("id");
+    if (!userId) {
+      Swal.fire({
+        icon: "error",
+        title: "Stranger!!",
+        text: "Please Login to Continue",
+        willClose: () => {navigate("/account")},
+      });
+      return;
+    }
+
+    dispatch(addToCartAction({ userId, productId, quantity }));
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Product Added to Cart",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
 
   return (
     <>
@@ -36,7 +55,7 @@ export function CustomerProductCard() {
                  <p>Code: {product.id} </p>
                   <p>Quantity: {product.quantity} </p>
                  <Link to={`${product.id}/view`} className="btn btn-custom me-1 text-dark p-2">View</Link>
-                 <button className="btn btn-custom me-1 text-dark p-2" onClick={() =>addToCartHandler(product.id)}>Add To Cart</button>
+                 <button className="btn btn-custom me-1 text-dark p-2" onClick={() => addToCartHandler(product.id)}>Add To Cart</button>
                </div>
              </div>
            </div>

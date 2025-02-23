@@ -1,4 +1,15 @@
+import { useDispatch } from "react-redux";
+import { removeFromCartAction } from "../redux/usersSlice"; // Import the removeFromCartAction
+
+
 export function CartProductCard({ product }) {
+  const dispatch = useDispatch();
+  const userId = sessionStorage.getItem("id");
+
+  const handleDelete = () => {
+    dispatch(removeFromCartAction({ userId, productId: product.id }));
+  };
+
   return(
   <>
     <div className="card mb-3">
@@ -11,6 +22,7 @@ export function CartProductCard({ product }) {
             <h5 className="card-title">{product.name}</h5>
             <p className="card-text">Price: ${product.price}</p>
             <p className="card-text">Quantity: {product.quantity}</p>
+            <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
           </div>
         </div>
       </div>

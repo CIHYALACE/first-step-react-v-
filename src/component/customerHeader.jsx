@@ -32,11 +32,6 @@ export function CustomerHeader() {
                     Home
                   </NavLink>
                 </li>
-                {/* <li className="nav-item">
-                  <NavLink className= { ( { isActive } ) => isActive ?  "nav-link text-danger mx-2":"nav-link text-light mx-2"} to="/">
-                    Products
-                  </NavLink>
-                </li> */}
                 <li className="nav-item">
                   <NavLink className= { ( { isActive } ) => isActive ?  "nav-link text-danger mx-2":"nav-link text-light mx-2"} to="faqs">
                     FaQ's

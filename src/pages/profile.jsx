@@ -1,12 +1,21 @@
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2";
 
 export function Profile(){
     const navigate = useNavigate()
 
     const logoutHandler =() =>{
         sessionStorage.clear()
-        navigate("/")
-        window.location.reload();
+           Swal.fire({
+              title: "Loged Out!",
+              text: "You loGed Out Successfully!",
+              icon: "success",
+              willClose: () => {
+                navigate("/")
+                window.location.reload();
+              }
+            });
+
     }
 
 

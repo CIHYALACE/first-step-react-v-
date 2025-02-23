@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { addNewUser } from "../api/userApi"
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export function RegisterForm({ shiftImage }) {
   const navigate = useNavigate();
@@ -22,7 +23,14 @@ export function RegisterForm({ shiftImage }) {
   const registerHandler = async (e) => {
     e.preventDefault();
     await addNewUser (formData);
-    navigate(0)
+    Swal.fire({
+      title: "Register Succesfully!",
+      text: "You Maked An Acount with US!",
+      icon: "success",
+      willClose: () => {
+        navigate(0)
+      }
+    });
   };
 
   return (

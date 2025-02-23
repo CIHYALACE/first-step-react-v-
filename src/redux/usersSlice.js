@@ -62,6 +62,25 @@ const initialState = {
     }
   )
 
+  export const removeFromCartAction = createAsyncThunk(
+    "user/removeFromCartAction",
+    async ({ userId, productId }, thunkAPI) => {
+      const { rejectWithValue } = thunkAPI;
+      try {
+        let userResponse = await GetUserData(userId);
+        let user = userResponse.data;
+  
+        let updatedCart = user.cart.filter(item => item.id !== productId);
+  
+        let response = await removeFromCart(userId, updatedCart);
+        console.log(response.data);
+        return response.data;
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );
+
   const usersSlice = createSlice({
     name: "user",
     initialState,
@@ -85,10 +104,16 @@ const initialState = {
           builder.addCase(addToCartAction.fulfilled, (state, action)=>{
             let product = action.payload
             state.cartData = [...state.cartData,product]
-          })
+          });
           builder.addCase(addToCartAction.rejected, (state, action)=>{
             state.errors = action.payload;
-          })
+          });
+          builder.addCase(removeFromCartAction.fulfilled, (state, action) => {
+            state.cartData = action.payload.cart;
+          });
+          builder.addCase(removeFromCartAction.rejected, (state, action) => {
+            state.errors = action.payload;
+          });
     }
   });
 
