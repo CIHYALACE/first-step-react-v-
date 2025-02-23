@@ -12,7 +12,7 @@ export function CartProductCard() {
       dispatch(getUserDataAction(userId))
   }, [dispatch, userId])
 
- 
+ console.log(users)
 
   return(
     <>

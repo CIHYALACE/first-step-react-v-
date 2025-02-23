@@ -25,6 +25,7 @@ const initialState = {
       const {rejectWithValue} = thunkAPI;
     try{
       let response = await GetUserData(userId)
+      console.log(response.data)
       return response.data
       
     }catch (error){
