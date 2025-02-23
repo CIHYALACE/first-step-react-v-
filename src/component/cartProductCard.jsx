@@ -1,14 +1,4 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getUserDataAction } from "../redux/usersSlice"
-
-
 export function CartProductCard({ product }) {
-  const dispatch = useDispatch()
-
-
-
-
   return(
   <>
     <div className="card mb-3">

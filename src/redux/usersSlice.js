@@ -4,7 +4,7 @@ import { addToCart, GetAllUsers, GetUserData } from "../api/userApi";
 const initialState = {
     users: [],
     errors: null,
-    cartData: ["hello"],
+    cartData: [],
   };
 
   export const getAllUsersAction = createAsyncThunk(
@@ -26,7 +26,6 @@ const initialState = {
       const {rejectWithValue} = thunkAPI;
     try{
       const response = await GetUserData(userId)
-      console.log(response.data)
       return response.data;
       
     }catch (error){
